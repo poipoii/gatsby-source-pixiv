@@ -1,0 +1,55 @@
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
+
+exports.downloadMediaFile = async ({
+  datum,
+  store,
+  cache,
+  createNode,
+  createNodeId,
+  touchNode,
+}) => {
+  let fileNodeID
+  if (datum.internal.type === `PixivNode` || datum.internal.type === `PixivUserNode`) {
+    const mediaDataCacheKey = `pixiv-media-${datum.id}`
+    const cacheMediaData = await cache.get(mediaDataCacheKey)
+
+    // If we have cached media data reuse
+    // previously created file node to not try to redownload
+    if (cacheMediaData) {
+      fileNodeID = cacheMediaData.fileNodeID
+      touchNode({
+        nodeId: cacheMediaData.fileNodeID,
+      })
+    }
+
+    // If we don't have cached data, download the file
+    if (!fileNodeID) {
+      try {
+        const fileNode = await createRemoteFileNode({
+          url: datum.profile_pic_url || datum.preview,
+          store,
+          cache,
+          createNode,
+          createNodeId,
+          httpHeaders: { Referer: `http://www.pixiv.net/` },
+        })
+
+        if (fileNode) {
+          fileNodeID = fileNode.id
+
+          await cache.set(mediaDataCacheKey, {
+            fileNodeID,
+          })
+        }
+      } catch (e) {
+        console.log(`Could not download file, error is`, e)
+      }
+    }
+  }
+
+  if (fileNodeID) {
+    // eslint-disable-next-line require-atomic-updates
+    datum.localFile___NODE = fileNodeID
+  }
+  return datum
+}

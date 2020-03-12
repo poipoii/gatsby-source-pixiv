@@ -1,0 +1,47 @@
+{
+  "name": "gatsby-source-pixiv",
+  "description": "Gatsby source plugin for fetching pixiv data",
+  "version": "0.0.1",
+  "author": "poipoii <earth.sama@gmail.com>",
+  "main": "index.js",
+  "bugs": {
+    "url": "https://github.com/poipoii/gatsby-source-pixiv/issues"
+  },
+  "dependencies": {
+    "pixiv-app-api": "^1.0.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.8.4",
+    "@babel/core": "7.8.7",
+    "babel-eslint": "10.1.0",
+    "babel-preset-gatsby-package": "0.2.16",
+    "cross-env": "7.0.2",
+    "eslint": "6.8.0",
+    "eslint-config-google": "0.14.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.18.3",
+    "prettier": "1.19.1"
+  },
+  "homepage": "https://github.com/poipoii/gatsby-source-pixiv",
+  "keywords": [
+    "pixiv",
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-source",
+    "gatsby-plugin-source"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "gatsby": ">2.0.0-alpha",
+    "gatsby-source-filesystem": "^2.0.27"
+  },
+  "repository": "https://github.com/poipoii/gatsby-source-pixiv",
+  "scripts": {
+    "build": "babel src --out-dir . --ignore **/__tests__",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore **/__tests__"
+  }
+}
