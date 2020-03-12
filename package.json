@@ -31,7 +31,8 @@
     "gatsby",
     "gatsby-plugin",
     "gatsby-source",
-    "gatsby-plugin-source"
+    "gatsby-plugin-source",
+    "gatsby-source-plugin"
   ],
   "license": "MIT",
   "peerDependencies": {
