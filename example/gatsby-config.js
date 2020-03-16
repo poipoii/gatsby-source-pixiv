@@ -2,7 +2,7 @@ require(`dotenv`).config()
 
 module.exports = {
   siteMetadata: {
-    title: `gatsby-source-pixiv-exaple`,
+    title: `gatsby-source-pixiv-example`,
     author: `poipoii`,
   },
   plugins: [
