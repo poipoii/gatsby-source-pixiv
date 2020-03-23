@@ -1,7 +1,7 @@
 {
   "name": "gatsby-source-pixiv",
   "description": "Gatsby source plugin for fetching pixiv data",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "poipoii <earth.sama@gmail.com>",
   "main": "index.js",
   "bugs": {
@@ -15,6 +15,7 @@
     "@babel/core": "7.8.7",
     "babel-eslint": "10.1.0",
     "babel-preset-gatsby-package": "0.2.16",
+    "conventional-changelog-cli": "2.0.31",
     "cross-env": "7.0.2",
     "eslint": "6.8.0",
     "eslint-config-google": "0.14.0",
@@ -23,7 +24,11 @@
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-react": "7.18.3",
-    "prettier": "1.19.1"
+    "gatsby-source-filesystem": "2.2.1",
+    "minimist": "1.2.5"
+  },
+  "resolutions": {
+    "minimist": "^1.2.5"
   },
   "homepage": "https://github.com/poipoii/gatsby-source-pixiv",
   "keywords": [
@@ -43,6 +48,7 @@
   "scripts": {
     "build": "babel src --out-dir . --ignore **/__tests__",
     "prepare": "cross-env NODE_ENV=production npm run build",
-    "watch": "babel -w src --out-dir . --ignore **/__tests__"
+    "watch": "babel -w src --out-dir . --ignore **/__tests__",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   }
 }

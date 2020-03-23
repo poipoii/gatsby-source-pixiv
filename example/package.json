@@ -9,8 +9,6 @@
     "gatsby-image": "^2.0.34",
     "gatsby-plugin-sharp": "^2.4.12",
     "gatsby-plugin-styled-components": "^3.1.0",
-    "gatsby-source-filesystem": "^2.0.1",
-    "gatsby-source-pixiv": "0.0.1",
     "gatsby-transformer-remark": "^2.5.0",
     "gatsby-transformer-sharp": "^2.2.0",
     "grommet": "^2.7.1",
@@ -29,9 +27,10 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "bash develop.sh",
     "format": "prettier --write '**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gatsby:develop": "gatsby develop"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

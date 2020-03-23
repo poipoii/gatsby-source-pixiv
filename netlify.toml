@@ -1,5 +1,5 @@
 [build]
   base    = "example"
   publish = "public"
-  command = "gatsby build"
+  command = "cd ../ && yarn install && cd example && gatsby build"
   ignore = "git diff --quiet HEAD^ HEAD ."

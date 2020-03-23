@@ -11,7 +11,7 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-source-pixiv`,
+      resolve: require.resolve(`../`),
       options: {
         username: process.env.USERNAME,
         password: process.env.PASSWORD,
@@ -20,7 +20,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-pixiv`,
+      resolve: require.resolve(`../`),
       options: {
         username: process.env.USERNAME,
         password: process.env.PASSWORD,
