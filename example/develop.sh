@@ -13,4 +13,4 @@ trap cleanup SIGINT
 trap cleanup EXIT
 
 screen -dmS $SCREEN_NAME bash -c "cd \"$BASE_DIR\" && yarn watch"
-yarn gatsby:develop
+cd "$CURRENT_DIR" && yarn gatsby:develop

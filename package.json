@@ -25,7 +25,8 @@
     "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-react": "7.18.3",
     "gatsby-source-filesystem": "2.2.1",
-    "minimist": "1.2.5"
+    "minimist": "1.2.5",
+    "prettier": "2.0.1"
   },
   "resolutions": {
     "minimist": "^1.2.5"
@@ -46,6 +47,7 @@
   },
   "repository": "https://github.com/poipoii/gatsby-source-pixiv",
   "scripts": {
+    "format": "prettier --write 'src/*.js'",
     "build": "babel src --out-dir . --ignore **/__tests__",
     "prepare": "cross-env NODE_ENV=production npm run build",
     "watch": "babel -w src --out-dir . --ignore **/__tests__",

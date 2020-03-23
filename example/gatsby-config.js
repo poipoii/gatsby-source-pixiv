@@ -26,6 +26,7 @@ module.exports = {
         password: process.env.PASSWORD,
         type: 'illusts',
         user_id: 19859044,
+        maxArtworks: 100,
       },
     }
   ],

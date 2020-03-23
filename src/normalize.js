@@ -9,7 +9,10 @@ exports.downloadMediaFile = async ({
   touchNode,
 }) => {
   let fileNodeID
-  if (datum.internal.type === `PixivNode` || datum.internal.type === `PixivUserNode`) {
+  if (
+    datum.internal.type === `PixivNode` ||
+    datum.internal.type === `PixivUserNode`
+  ) {
     const mediaDataCacheKey = `pixiv-media-${datum.id}`
     const cacheMediaData = await cache.get(mediaDataCacheKey)
 

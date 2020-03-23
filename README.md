@@ -42,10 +42,13 @@ plugins: [
       password: process.env.PASSWORD,
       type: 'illusts',
       user_id: 19859044,
+      maxArtworks: 100,
     },
   },
 ]
 ```
+
+The `maxArtworks` parameter enables us to limit the maximum number of the artwork we will store. Defaults to undefined (no limit).
 
 ### API for a user's profile
 

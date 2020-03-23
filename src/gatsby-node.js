@@ -1,13 +1,10 @@
 const crypto = require(`crypto`)
 const normalize = require(`./normalize`)
-const {
-  getUserDetail,
-  getUserIllusts,
-} = require(`./pixiv`)
+const { getUserDetail, getUserIllusts } = require(`./pixiv`)
 
 const defaultOptions = {
   type: `user-profile`,
-  paginate: 100,
+  maxArtworks: undefined,
 }
 
 async function getPixivUser(options) {
@@ -32,11 +29,14 @@ function createPostNode(datum, params) {
     thumbnails: datum.imageUrls,
     metaPages: datum.metaPages,
     mediaType: datum.type,
-    preview: datum.imageUrls.squareMedium || datum.imageUrls.medium || datum.imageUrls.large,
+    preview:
+      datum.imageUrls.squareMedium ||
+      datum.imageUrls.medium ||
+      datum.imageUrls.large,
     original: datum.display_url || datum.media_url,
     timestamp: new Date(datum.createDate).getTime() / 1000,
     tools: datum.tools,
-    tags: datum.tags.map(t => t.name),
+    tags: datum.tags.map((t) => t.name),
     totalBookmarks: datum.totalBookmarks,
     totalComments: datum.totalComments,
     totalView: datum.totalView,
@@ -93,7 +93,7 @@ exports.sourceNodes = async (
   // Process data into nodes.
   if (data) {
     return Promise.all(
-      data.map(async datum => {
+      data.map(async (datum) => {
         const res = await normalize.downloadMediaFile({
           datum: processDatum(datum, params),
           store,
