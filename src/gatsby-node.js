@@ -30,9 +30,9 @@ function createPostNode(datum, params) {
     metaPages: datum.metaPages,
     mediaType: datum.type,
     preview:
-      datum.imageUrls.squareMedium ||
+      datum.imageUrls.large ||
       datum.imageUrls.medium ||
-      datum.imageUrls.large,
+      datum.imageUrls.squareMedium,
     original: datum.display_url || datum.media_url,
     timestamp: new Date(datum.createDate).getTime() / 1000,
     tools: datum.tools,
