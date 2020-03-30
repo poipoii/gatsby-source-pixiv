@@ -1,7 +1,7 @@
 {
   "name": "gatsby-source-pixiv",
   "description": "Gatsby source plugin for fetching pixiv data",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "poipoii <earth.sama@gmail.com>",
   "main": "index.js",
   "bugs": {
