@@ -5,7 +5,7 @@
 ![npm](https://img.shields.io/npm/dw/gatsby-source-pixiv.svg)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 ![NPM](https://img.shields.io/npm/l/gatsby-source-pixiv.svg)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/fb6813a0-085c-4059-ace5-0a644ee57b13/deploy-status)](https://gatsby-source-pixiv.netlify.com/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fb6813a0-085c-4059-ace5-0a644ee57b13/deploy-status)](https://gatsby-source-pixiv.netlify.app/)
 </div>
 
 Source plugin for sourcing data from Pixiv.
