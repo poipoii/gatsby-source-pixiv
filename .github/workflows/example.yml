@@ -1,0 +1,14 @@
+name: schedule-auto-update-example
+
+on:
+  schedule:
+    - cron: '50 16 * * 0'
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    steps:
+    - name: trigger a deploy via build hook
+      run: curl -X POST -d {} $WEBHOOK_URL
+      env:
+        WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
