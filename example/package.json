@@ -5,25 +5,32 @@
   "author": "poipoii <earth.sama@gmail.com>",
   "dependencies": {
     "dotenv": "^8.0.0",
-    "gatsby": "^2.19.41",
-    "gatsby-image": "^2.0.34",
-    "gatsby-plugin-sharp": "^2.4.12",
-    "gatsby-plugin-styled-components": "^3.1.0",
-    "gatsby-transformer-remark": "^2.5.0",
-    "gatsby-transformer-sharp": "^2.2.0",
+    "gatsby": "2.30.2",
+    "gatsby-image": "^2.9.0",
+    "gatsby-plugin-sharp": "^2.12.1",
+    "gatsby-plugin-styled-components": "^3.8.0",
+    "gatsby-transformer-remark": "^2.14.0",
+    "gatsby-transformer-sharp": "^2.10.1",
     "grommet": "^2.7.1",
     "grommet-icons": "^4.2.0",
-    "pixiv-app-api": "1.0.4",
+    "pixiv-app-api": "1.2.1",
     "prop-types": "^15.6.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "rehype-react": "^3.0.2",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "webpack": "5.15.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
   },
   "keywords": [
     "gatsby",
     "pixiv"
   ],
+  "resolutions": {
+    "axios": "^0.21.1"
+  },
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -31,9 +38,6 @@
     "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "gatsby:develop": "gatsby develop"
-  },
-  "devDependencies": {
-    "prettier": "^1.18.2"
   },
   "repository": {
     "type": "git"
