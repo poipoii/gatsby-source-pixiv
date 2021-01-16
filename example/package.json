@@ -1,7 +1,7 @@
 {
   "name": "gatsby-source-pixiv-example",
   "description": "Gatsby site example for gatsby-source-pixiv",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "poipoii <earth.sama@gmail.com>",
   "dependencies": {
     "dotenv": "^8.0.0",
