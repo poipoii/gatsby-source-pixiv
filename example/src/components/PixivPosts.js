@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Box, Grid, Anchor, ResponsiveContext, Text } from "grommet"
 import { Bookmark, Chat, View } from "grommet-icons"
 
@@ -48,7 +48,7 @@ const Wrapper = styled(Anchor)`
 const Node = ({ node }) => (
   <Wrapper plain href={`https://www.pixiv.net/artworks/${node.id}/`} target="_blank">
     <Overlay />
-    <Img fluid={node.localFile.childImageSharp.fluid} />
+    <GatsbyImage image={getImage(node.localFile)} alt={node.title} />
     <Content justify="center" title={node.title}>
       <Info gap="medium" alignSelf="center" direction="row">
         <View color="white" />

@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Box, Text, Paragraph, ResponsiveContext } from "grommet"
 
 const Biography = styled(Paragraph)`
@@ -14,7 +14,7 @@ export const PixivProfile = ({ profile }) => {
   return (
     <Box pad="large" {...extraProps}>
       <Box alignSelf="center" width="small" height="small">
-        <Img fit="cover" fluid={profile.localFile.childImageSharp.fluid} />
+        <GatsbyImage fit="cover" image={getImage(profile.localFile)} alt={profile.username} />
       </Box>
       <Box alignSelf="center" height="small" pad="small">
         <Text>

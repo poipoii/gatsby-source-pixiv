@@ -1,50 +1,38 @@
-const pixivAppApi = require("pixiv-app-api")
+const pixivAppApi = require("pixiv-api-client")
 
-export async function getUserDetail({ username, password, user_id }) {
-  const pixiv = new pixivAppApi(username, password, {
-    camelcaseKeys: true,
-  })
-  await pixiv.login()
+export async function getUserDetail({ refreshToken, user_id }) {
+  const pixiv = new pixivAppApi()
+  await pixiv.refreshAccessToken(refreshToken)
   return pixiv.userDetail(user_id)
 }
 
-export async function getUserIllusts({
-  username,
-  password,
-  user_id,
-  maxArtworks,
-}) {
-  const pixiv = new pixivAppApi(username, password, {
-    camelcaseKeys: true,
-  })
-  await pixiv.login()
+export async function getUserIllusts({ refreshToken, user_id, maxArtworks }) {
+  const pixiv = new pixivAppApi()
+  await pixiv.refreshAccessToken(refreshToken)
   let json = await pixiv.userIllusts(user_id)
-  let hasNext = pixiv.hasNext()
+  let hasNext = !!json.next_url
   let illusts = json.illusts
   while (hasNext && maxArtworks && illusts.length >= maxArtworks) {
-    json = await pixiv.next()
-    hasNext = pixiv.hasNext()
+    json = await pixiv.requestUrl(json.next_url)
+    hasNext = !!json.next_url
     illusts = illusts.concat(json.illusts)
   }
   return illusts.splice(0, maxArtworks || illusts.length)
 }
 
 export async function getUserBookmarksIllust({
-  username,
-  password,
+  refreshToken,
   user_id,
   maxArtworks,
 }) {
-  const pixiv = new pixivAppApi(username, password, {
-    camelcaseKeys: true,
-  })
-  await pixiv.login()
+  const pixiv = new pixivAppApi()
+  await pixiv.refreshAccessToken(refreshToken)
   let json = await pixiv.userBookmarksIllust(user_id)
-  let hasNext = pixiv.hasNext()
+  let hasNext = !!json.next_url
   let illusts = json.illusts
   while (hasNext && maxArtworks && illusts.length >= maxArtworks) {
-    json = await pixiv.next()
-    hasNext = pixiv.hasNext()
+    json = await pixiv.requestUrl(json.next_url)
+    hasNext = !!json.next_url
     illusts = illusts.concat(json.illusts)
   }
   return illusts.splice(0, maxArtworks || illusts.length)

@@ -18,6 +18,7 @@ Source plugin for sourcing data from Pixiv.
 
 - [Install](#install)
 - [How to use](#how-to-use)
+  - [How to get the refreshToken](#how-to-get-the-refreshtoken)
   - [API for illustrations](#api-for-illustrations)
   - [API for a user's profile](#api-for-a-users-profile)
 - [How to query](#how-to-query)
@@ -31,6 +32,10 @@ Source plugin for sourcing data from Pixiv.
 
 ## How to use
 
+### How to get the refreshToken
+
+Follow this steps: https://gist.github.com/ZipFile/c9ebedb224406f4f11845ab700124362#file-pixiv_auth-py
+
 ### API for illustrations
 
 If you want to get all illustrations then you need to pass the concerning user ID (e.g. [https://www.pixiv.net/users/19859044](https://www.pixiv.net/users/19859044)).
@@ -42,8 +47,7 @@ plugins: [
   {
     resolve: `gatsby-source-pixiv`,
     options: {
-      username: process.env.USERNAME,
-      password: process.env.PASSWORD,
+      refreshToken: process.env.REFRESH_TOKEN,
       type: 'illusts',
       user_id: 19859044,
       maxArtworks: 100,
@@ -64,8 +68,7 @@ plugins: [
   {
     resolve: `gatsby-source-pixiv`,
     options: {
-      username: process.env.USERNAME,
-      password: process.env.PASSWORD,
+      refreshToken: process.env.REFRESH_TOKEN,
       type: `user-profile`,
       user_id: 19859044,
     },
@@ -108,9 +111,11 @@ query {
         caption
         localFile {
           childImageSharp {
-            fluid(quality: 70, maxWidth: 600, maxHeight: 600) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData (
+              width: 600,
+              height: 600,
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }
@@ -138,15 +143,15 @@ query {
     biography
     data {
       profile {
-        totalFollowUsers
-        totalIllusts
+        total_follow_users
+        total_illusts
       }
     }
     localFile {
       childImageSharp {
-        fluid(quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
   }

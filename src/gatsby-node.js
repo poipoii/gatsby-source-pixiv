@@ -26,20 +26,20 @@ function createPostNode(datum, params) {
     },
     title: datum.title,
     caption: datum.caption,
-    thumbnails: datum.imageUrls,
-    metaPages: datum.metaPages,
+    thumbnails: datum.image_urls,
+    metaPages: datum.meta_pages,
     mediaType: datum.type,
     preview:
-      datum.imageUrls.large ||
-      datum.imageUrls.medium ||
-      datum.imageUrls.squareMedium,
+      datum.image_urls.large ||
+      datum.image_urls.medium ||
+      datum.image_urls.square_medium,
     original: datum.display_url || datum.media_url,
-    timestamp: new Date(datum.createDate).getTime() / 1000,
+    timestamp: new Date(datum.create_date).getTime() / 1000,
     tools: datum.tools,
     tags: datum.tags.map((t) => t.name),
-    totalBookmarks: datum.totalBookmarks,
-    totalComments: datum.totalComments,
-    totalView: datum.totalView,
+    totalBookmarks: datum.total_bookmarks,
+    totalComments: datum.total_comments,
+    totalView: datum.total_view,
   }
 }
 
@@ -49,8 +49,8 @@ function createUserNode(datum, params) {
     id: `${datum.user.id}`,
     username: datum.user.name,
     biography: datum.user.comment,
-    profile_pic_url: datum.user.profileImageUrls.medium,
-    background_pic_url: datum.profile.backgroundImageUrl,
+    profile_pic_url: datum.user.profile_image_urls.medium,
+    background_pic_url: datum.profile.background_image_url,
     data: datum,
     internal: {
       type: `PixivUserNode`,

@@ -5,9 +5,9 @@ import { Layout, Container } from "../components"
 const IndexPage = ({ data: { allPixivNode } }) => (
   <Layout>
     <Container
-      title="Pixiv API"
-      text="The Pixiv API allows you to pull in all the available Pixiv artworks
-      from a specific account using an username password"
+      title="Gatsby-source-pixiv"
+      text="The Gatsby-source-pixiv allows you to pull in all the available Pixiv artworks
+      from a specific account using an refreshToken"
       nodes={allPixivNode}
     />
   </Layout>
@@ -15,7 +15,7 @@ const IndexPage = ({ data: { allPixivNode } }) => (
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allPixivNode(filter: {user: {id: {eq: 19859044}}}) {
+    allPixivNode(sort: {fields: timestamp, order: DESC}) {
       edges {
         node {
           id
@@ -26,9 +26,11 @@ export const pageQuery = graphql`
           caption
           localFile {
             childImageSharp {
-              fluid(quality: 90, maxWidth: 600, maxHeight: 600) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData (
+                width: 600,
+                height: 600,
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
         }

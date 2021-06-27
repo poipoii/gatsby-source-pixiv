@@ -16,15 +16,15 @@ export const pageQuery = graphql`
       biography
       data {
         profile {
-          totalFollowUsers
-          totalIllusts
+          total_follow_users
+          total_illusts
         }
       }
       localFile {
         childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
       }
     }
