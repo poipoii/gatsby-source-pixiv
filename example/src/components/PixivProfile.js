@@ -20,8 +20,8 @@ export const PixivProfile = ({ profile }) => {
         <Text>
           <b>@{profile.username}</b>
         </Text>
-        <Text>{profile.data.profile.totalFollowUsers} following</Text>
-        <Text>{profile.data.profile.totalIllusts} illustrations</Text>
+        <Text>{profile.data.profile.total_follow_users} following</Text>
+        <Text>{profile.data.profile.total_illusts} illustrations</Text>
         <Text>{profile.full_name}</Text>
       </Box>
       <Box alignSelf="center" width="medium" wrap>
