@@ -24,7 +24,7 @@
     "gatsby-plugin-styled-components": "5.22.0",
     "gatsby-transformer-remark": "5.22.0",
     "gatsby-transformer-sharp": "4.22.0",
-    "grommet": "2.25.3",
+    "grommet": "2.38.0",
     "grommet-icons": "4.8.0",
     "pixiv-api-client": "0.25.0",
     "react": "18.2.0",
